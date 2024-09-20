@@ -1,0 +1,163 @@
+.display-container {
+  background-image: url(../images/bg-pattern.png);
+  background-size: 100% 75%;
+  background-repeat: no-repeat;
+  background-position: top;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.product-display {
+  display: flex;
+  align-items: center;
+  width: 900px;
+  max-width: 90%;
+  padding: 20px;
+  background: var(--white-color);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.product-image img {
+  width: 250px;
+  height: auto;
+  padding: 20px;
+}
+
+.product-detail {
+  margin-left: 20px;
+  padding-right: 50px;
+  padding-bottom: 20px;
+}
+
+.product-name {
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 33.89px;
+  text-align: left;
+  color: var(--man-button-color);
+}
+
+.product-subcategory-rating {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.subcategory {
+  font-family: "Inter", sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.78px;
+  text-align: left;
+  color: var(--seconday-color);
+}
+
+.rating {
+  display: flex;
+  gap: 5px;
+  margin-left: auto;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--seconday-color);
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #dcdcdc;
+}
+
+.circle.filled {
+  background-color: var(--man-button-color);
+}
+
+.product-description {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  position: relative;
+  text-align: left;
+  padding: 10px 0;
+  color: var(--primary-color);
+  padding-top: 20px;
+  padding-bottom: 80px;
+}
+
+.product-description::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.5px;
+  background-color: var(--unvailable-background-color);
+  left: 0;
+  top: 0;
+}
+.product-description::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.5px;
+  background-color: var(--unvailable-background-color);
+  left: 0;
+  bottom: 0;
+}
+
+.price {
+  font-family: "Inter", sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 33.89px;
+  text-align: left;
+  color: var(--man-button-color);
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.buy-button {
+  width: 100%;
+  padding: 10px 15px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: var(--man-button-color);
+  color: var(--white-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+  background-color: var(--man-background-color);
+  color: var(--man-button-color);
+}
+
+.next-button {
+  width: 100%;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  padding: 10px 15px;
+  font-size: 20px;
+  border: 2px solid var(--man-button-color);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--man-button-color);
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.next-button:hover {
+  background-color: var(--man-button-color);
+  color: var(--white-color);
+}

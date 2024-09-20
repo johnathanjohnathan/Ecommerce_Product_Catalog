@@ -1,0 +1,26 @@
+:root {
+  --man-button-color: #002772;
+  --woman-background-color: #fde2ff;
+  --primary-color: #1e1e1e;
+  --woman-button-color: #720060;
+  --man-background-color: #d6e6ff;
+  --seconday-color: #3f3f3f;
+  --unvailable-background-color: #dcdcdc;
+  --white-color: #ffffff;
+}
+
+body {
+  background: linear-gradient(
+    to bottom,
+    var(--man-background-color) 70%,
+    var(--white-color) 30%
+  );
+}
+
+/* body {
+  background: linear-gradient(
+    to bottom,
+    var(--unvailable-background-color) 70%,
+    var(--white-color) 30%
+  );
+} */
