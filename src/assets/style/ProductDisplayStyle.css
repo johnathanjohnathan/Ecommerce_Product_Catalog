@@ -12,8 +12,9 @@
 .product-display {
   display: flex;
   align-items: center;
-  width: 900px;
-  max-width: 90%;
+  width: 60%;
+  height: auto;
+  max-height: 700px;
   padding: 20px;
   background: var(--white-color);
   border-radius: 8px;

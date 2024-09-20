@@ -1,38 +1,40 @@
 <script setup>
-import productImage from '../assets/images/mens-clotches.png'
+import { defineProps, defineEmits } from 'vue';
 import '../assets/style/ProductDisplayStyle.css'
+
+const props = defineProps({
+    product: {
+        type: Object,
+        required: true
+    }
+})
+
+const emit = defineEmits()
+
+const handleNextClick = () => {
+    emit('next')
+}
 </script>
 
 <template>
     <div class="display-container">
         <div class="product-display">
             <div class="product-image">
-                <img :src=productImage alt="Product Image" />
+                <img :src="product.image" alt="Product Image" />
             </div>
             <div class="product-detail">
-                <h2 class="product-name">Mens Casual Slim Fit</h2>
+                <h2 class="product-name">{{ product.title }}</h2>
                 <div class="product-subcategory-rating">
-                    <span class="subcategory">men's clothing</span>
-                    <span class="rating">4/5
-                        <span class="circle filled"></span>
-                        <span class="circle filled"></span>
-                        <span class="circle filled"></span>
-                        <span class="circle filled"></span>
-                        <span class="circle"></span>
+                    <span class="subcategory">{{ product.category }}</span>
+                    <span class="rating">{{ product.rating.rate }}/5
+                        <span v-for="index in 5" :key="index" :class="{'circle filled': index <= Math.round(product.rating.rate), 'circle': index > Math.round(product.rating.rate)}"></span>
                     </span>
                 </div>
-                <p class="product-description">great outerwear jackets for Spring/Autumn/Winter, suitable for many
-                    occasions,
-                    such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good
-                    gift
-                    choice for you or your family member. A warm hearted love to Father, husband or son in this
-                    thanksgiving
-                    or
-                    Christmas Day.</p>
-                <span class="price">$1</span>
+                <p class="product-description">{{ product.description }}</p>
+                <span class="price">${{ product.price }}</span>
                 <div class="button-container">
                     <button class="buy-button">Buy now</button>
-                    <button class="next-button">Next product</button>
+                    <button class="next-button" @click="handleNextClick">Next product</button>
                 </div>
             </div>
         </div>
