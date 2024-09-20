@@ -47,7 +47,9 @@
   background-color: transparent;
   color: var(--primary-color);
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .next-product:hover {
