@@ -14,7 +14,7 @@ const initialProductState = {
 };
 
 const state = reactive({
-  product: {...initialProductState },
+  product: { ...initialProductState },
   currentIndex: 1,
 });
 
@@ -24,21 +24,23 @@ const fetchProduct = async (index) => {
   try {
     isLoading.value = true;
     const response = await fetch(`https://fakestoreapi.com/products/${index}`);
-    
+
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     const productData = await response.json();
-    // Filter product category
-    if (productData && (productData.category === "men's clothing" || productData.category === "women's clothing")) {
+    if (
+      productData &&
+      (productData.category === "men's clothing" ||
+        productData.category === "women's clothing")
+    ) {
       Object.assign(state.product, productData);
     } else {
-      // Set a flag if product is unavailable
-      Object.assign(state.product, initialProductState)
+      Object.assign(state.product, initialProductState);
     }
   } catch (err) {
     console.error("Error fetching product:", err.message);
-    Object.assign(state.product, initialProductState)
+    Object.assign(state.product, initialProductState);
   } finally {
     isLoading.value = false;
   }
@@ -57,9 +59,6 @@ const updateBodyBackground = () => {
   } else if (state.product.category === "men's clothing") {
     body.style.background =
       "linear-gradient(to bottom, var(--man-background-color) 70%, var(--white-color) 30%)";
-  } else {
-    document.body.style.background =
-      "linear-gradient(to bottom, var(--unvailable-background-color) 70%, var(--white-color) 30%";
   }
 };
 
@@ -67,25 +66,38 @@ onMounted(() => {
   fetchProduct(state.currentIndex);
 });
 
-watch(() => state.product.category, (newProduct) => {
-  if (newProduct) {
-    updateBodyBackground();
-  } else {
-    document.body.style.background =
-      "linear-gradient(to bottom, var(--unvailable-background-color) 70%, var(--white-color) 30%";
-  }
-});
-
+watch(
+  () => state.product.category,
+  (newProduct) => {
+    if (newProduct) {
+      updateBodyBackground();
+    } else {
+      document.body.style.background =
+        "linear-gradient(to bottom, var(--unvailable-background-color) 70%, var(--white-color) 30%";
+    }
+  },
+);
 </script>
 
 <template>
   <div>
     <Loader v-if="isLoading.value" />
     <ProductDisplay
-      v-if="!isLoading.value && state.product && (state.product.category === 'men\'s clothing' || state.product.category === 'women\'s clothing')"
+      v-if="
+        !isLoading.value &&
+        state.product &&
+        (state.product.category === 'men\'s clothing' ||
+          state.product.category === 'women\'s clothing')
+      "
       :product="state.product"
       @next="nextProduct"
     />
-    <ProductUnavailable v-if="!isLoading.value && (!state.product.category || state.product.category === '')" @next="nextProduct" />
+    <ProductUnavailable
+      v-if="
+        !isLoading.value &&
+        (!state.product.category || state.product.category === '')
+      "
+      @next="nextProduct"
+    />
   </div>
 </template>

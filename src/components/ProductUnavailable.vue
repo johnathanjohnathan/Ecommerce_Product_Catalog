@@ -2,11 +2,11 @@
 import { defineEmits } from "vue";
 import "../assets/style/ProductUnavailableStyle.css";
 
-const emit = defineEmits()
+const emit = defineEmits();
 
 const handleNextClick = () => {
-  emit("next")
-}
+  emit("next");
+};
 </script>
 
 <template>
@@ -14,7 +14,9 @@ const handleNextClick = () => {
     <div class="notfound-card">
       <div class="notfound-message-card">
         <h3 class="notfound-message">This product is unavailable to show</h3>
-        <button class="next-product" @click="handleNextClick">Next product</button>
+        <button class="next-product" @click="handleNextClick">
+          Next product
+        </button>
       </div>
     </div>
   </div>

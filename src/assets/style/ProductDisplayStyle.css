@@ -177,7 +177,9 @@
   background-color: transparent;
   color: var(--man-button-color);
   cursor: pointer;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
 
 .next-button.next-button-womens {
