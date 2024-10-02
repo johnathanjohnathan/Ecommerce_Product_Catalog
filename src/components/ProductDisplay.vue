@@ -1,5 +1,4 @@
 <script setup>
-import { defineProps, defineEmits } from "vue";
 import "../assets/style/ProductDisplayStyle.css";
 
 const props = defineProps({
